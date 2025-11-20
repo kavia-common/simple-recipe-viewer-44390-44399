@@ -1,13 +1,12 @@
-import { Injectable, inject } from '@angular/core';
-import { EnvironmentInjector } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Recipe } from '../models/recipe';
 import { Observable, of } from 'rxjs';
 
 // PUBLIC_INTERFACE
 @Injectable({ providedIn: 'root' })
 export class RecipeService {
-  private readonly env = inject(EnvironmentInjector);
-  private readonly apiBase = (this.env as any)?.get?.('NG_APP_API_BASE') || '';
+  // API base is left empty until backend wiring is complete.
+  private readonly apiBase = '';
 
   /** In-memory mock data until backend/API is wired */
   private recipes: Recipe[] = [
